@@ -12,7 +12,7 @@ chcp 65001
 :: lendo e executando o arquivo de configurações
 echo ""
 echo Configs -------------------------------
-for /f "tokens=1,2 delims=;" %%A in (configs.csv) do (
+for /f "skip=1 tokens=1,2 delims=," %%A in (configs.csv) do (
     set "coluna1=%%A"
     set "coluna2=%%B"
     echo ---------------------------------------
@@ -23,12 +23,12 @@ for /f "tokens=1,2 delims=;" %%A in (configs.csv) do (
 :: lendo e executando o arquivo de aplicativos
 echo ""
 echo Programas -----------------------------
-for /f "tokens=1,2 delims=;" %%A in (apps.csv) do (
+for /f "skip=1 tokens=1,2 delims=," %%A in (apps.csv) do (
     set "coluna1=%%A"
     set "coluna2=%%B"
     echo ---------------------------------------
     echo !coluna1!
-    winget install --id=!coluna2! -h
+    winget install --id=!coluna2! -h --accept-source-agreements --accept-package-agreements
 )
 
 endlocal
