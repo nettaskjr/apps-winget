@@ -9,7 +9,7 @@ cd /d "%~dp0"
 :: definindo a página de codigo para UTF-8
 chcp 65001
 
-:: lendo e executando o arquivo de configurações
+:: lendo e executando o arquivo de configurações, descartando a primeira linha (skip=1)
 echo ""
 echo Configs -------------------------------
 for /f "skip=1 tokens=1,2 delims=," %%A in (configs.csv) do (
@@ -20,7 +20,7 @@ for /f "skip=1 tokens=1,2 delims=," %%A in (configs.csv) do (
     !coluna2!
 )
 
-:: lendo e executando o arquivo de aplicativos
+:: lendo e executando o arquivo de aplicativos, descartando a primeira linha (skip=1)
 echo ""
 echo Programas -----------------------------
 for /f "skip=1 tokens=1,2 delims=," %%A in (apps.csv) do (
