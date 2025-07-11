@@ -1,0 +1,2 @@
+Instalacao do wsl e do Ubuntu;wsl --install -n
+Habilita a execucao de Scripts no PowerShell;Set-ExecutionPolicy -ExecutionPolicy ByPass 

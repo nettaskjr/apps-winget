@@ -1,0 +1,12 @@
+Dbeaver
+Spotify
+
+Habilita a execução de Scripts no PowerShell
+. : O arquivo C:\Users\netta\OneDrive\Documentos\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 não pode ser
+carregado porque a execução de scripts foi desabilitada neste sistema. Para obter mais informações, consulte
+about_Execution_Policies em https://go.microsoft.com/fwlink/?LinkID=135170.
+No linha:1 caractere:3
++ . 'C:\Users\netta\OneDrive\Documentos\WindowsPowerShell\Microsoft.Pow ...
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ErrodeSegurança: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
