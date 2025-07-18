@@ -15,19 +15,23 @@ echo  CONFIGURACOES INICIAIS
 echo =======================================
 
 echo.
-echo [1/3] Habilitando execucao de scripts PowerShell para esta sessao...
+echo [1/4] Habilitando execucao de scripts PowerShell para esta sessao...
 :: O erro em 'erros.txt' acontece porque o CMD nao entende comandos PowerShell.
 :: A forma correta e chamar o executavel do PowerShell e passar o comando.
 :: Usar '-ExecutionPolicy Bypass' e a melhor pratica para nao alterar a seguranca do sistema permanentemente.
-powershell.exe -ExecutionPolicy Bypass -Command "Write-Host 'Politica de execucao ajustada com sucesso.' -ForegroundColor Green"
+powershell.exe -ExecutionPolicy Unrestricted -Command "Write-Host 'Politica de execucao ajustada com sucesso.' -ForegroundColor Green"
 
 echo.
-echo [2/3] Instalando WSL com Debian...
+echo [2/4] Ativando o Windows Sandbox...
+Dism.exe /online /Enable-Feature /FeatureName:Containers-DisposableClientVM /all /NoRestart
+
+echo.
+echo [3/4] Instalando WSL com Debian...
 wsl --install -d Debian
 wsl --set-default Debian
 
 echo.
-echo [3/3] Atualizando todos os pacotes Winget...
+echo [4/4] Atualizando todos os pacotes Winget...
 winget upgrade --all --silent --accept-source-agreements --accept-package-agreements
 
 echo ""
