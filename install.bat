@@ -25,8 +25,8 @@ echo [2/4] Ativando o Windows Sandbox...
 
 echo.
 echo [3/4] Instalando WSL com Debian...
-wsl --install -d Debian
-wsl --set-default Debian
+:: wsl --install -d Debian
+:: wsl --set-default Debian
 
 echo.
 echo [4/4] Atualizando todos os pacotes Winget...
