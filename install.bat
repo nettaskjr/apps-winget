@@ -38,7 +38,8 @@ echo  INSTALANDO APLICATIVOS
 echo =======================================
 
 echo Baixando o arquivo de aplicativos...
-powershell.exe Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nettaskjr/apps-winget/main/apps.csv" -OutFile "apps.csv"
+:: Usamos -Command para garantir que o comando seja executado pelo PowerShell e não interpretado pelo CMD.
+powershell.exe -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nettaskjr/apps-winget/main/apps.csv' -OutFile 'apps.csv'"
 
 :: Lendo e executando o arquivo de aplicativos, descartando a primeira linha (cabeçalho)
 :: As configuracoes importantes foram movidas diretamente para este script.
