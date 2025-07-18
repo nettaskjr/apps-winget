@@ -32,7 +32,6 @@ echo.
 echo [4/4] Atualizando todos os pacotes Winget...
 winget upgrade --all --silent --accept-source-agreements --accept-package-agreements
 
-echo ""
 echo =======================================
 echo  INSTALANDO APLICATIVOS
 echo =======================================
