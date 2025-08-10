@@ -15,15 +15,15 @@ echo  CONFIGURACOES INICIAIS
 echo =======================================
 
 echo.
-echo [1/4] Ativando o Windows Sandbox...
+echo [1/3] Ativando o Windows Sandbox...
 Dism.exe /online /Enable-Feature /FeatureName:Containers-DisposableClientVM /all /NoRestart
 
 echo.
-echo [2/4] Instalando WSL com Debian...
+echo [2/3] Instalando WSL com Debian...
 wsl --install
 
 echo.
-echo [3/4] Atualizando todos os pacotes Winget...
+echo [3/3] Atualizando todos os pacotes Winget...
 winget upgrade --all --silent --accept-source-agreements --accept-package-agreements
 
 echo =======================================
@@ -52,4 +52,5 @@ echo =======================================
 endlocal
 
 pause
+
 
