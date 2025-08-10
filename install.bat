@@ -15,21 +15,15 @@ echo  CONFIGURACOES INICIAIS
 echo =======================================
 
 echo.
-echo [1/4] Habilitando execucao de scripts PowerShell para esta sessao...
-:: Usar '-ExecutionPolicy Bypass' e a melhor pratica para nao alterar a seguranca do sistema permanentemente.
-powershell.exe -ExecutionPolicy Unrestricted -Command "Write-Host 'Politica de execucao ajustada com sucesso.' -ForegroundColor Green"
-
-echo.
-echo [2/4] Ativando o Windows Sandbox...
+echo [1/4] Ativando o Windows Sandbox...
 Dism.exe /online /Enable-Feature /FeatureName:Containers-DisposableClientVM /all /NoRestart
 
 echo.
-echo [3/4] Instalando WSL com Debian...
-wsl --install -d Debian
-wsl --set-default Debian
+echo [2/4] Instalando WSL com Debian...
+wsl --install
 
 echo.
-echo [4/4] Atualizando todos os pacotes Winget...
+echo [3/4] Atualizando todos os pacotes Winget...
 winget upgrade --all --silent --accept-source-agreements --accept-package-agreements
 
 echo =======================================
@@ -58,3 +52,4 @@ echo =======================================
 endlocal
 
 pause
+
