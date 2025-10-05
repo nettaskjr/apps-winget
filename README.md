@@ -1,37 +1,41 @@
 # Apps-Winget: Automatizador de Instalação para Windows
 
-Este projeto contém um script de automação (`.bat`) para configurar um ambiente de desenvolvimento em uma nova instalação do Windows. Ele utiliza o **Gerenciador de Pacotes do Windows (`winget`)** para instalar seus aplicativos favoritos e também configura o **Subsistema do Windows para Linux (WSL)** com a distribuição Debian.
+Este projeto contém um script de automação (`.bat`) para configurar um ambiente de desenvolvimento em uma nova instalação do Windows. Ele utiliza o **Gerenciador de Pacotes do Windows (`winget`)** para instalar seus aplicativos favoritos, habilita o **Windows Sandbox** e configura o **Subsistema do Windows para Linux (WSL)**.
 
 O objetivo é simplificar e acelerar o processo de setup de uma nova máquina, garantindo que todas as ferramentas essenciais sejam instaladas de forma consistente e automática.
 
 ## ✨ Funcionalidades
 
-- ✅ **Configuração Inicial:** Habilita a execução de scripts PowerShell para a sessão atual e atualiza todos os pacotes `winget` existentes.
-- 🐧 **WSL com Debian:** Instala automaticamente o WSL e a distribuição Debian, definindo-a como padrão.
-- 📦 **Instalação em Lote:** Lê uma lista de aplicativos de um arquivo `apps.csv` e os instala de forma silenciosa.
+- ✅ **Configuração Inicial:** Instala o Sandbox e wsl, atualiza todos os pacotes existentes.
+- 🐧 **WSL:** Instala automaticamente o WSL distribui;áo padrão do Linux.
+- 📦 **Instalação em Lote:** Lê uma lista de aplicativos de um arquivo `apps.csv` e faz a instalação.
 - 🔧 **Fácil de Personalizar:** Basta editar o arquivo `apps.csv` para adicionar ou remover os aplicativos que você deseja instalar.
 
 ## 🚀 Como Usar
 
-1.  **Clone o Repositório**
-    Clone este repositório para a sua máquina local ou simplesmente baixe o arquivo ZIP.
+1.  **Execute o comando abaixo para instalar o script:**
     ```sh
-    git clone https://github.com/seu-usuario/apps-winget.git
-    cd apps-winget
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nettaskjr/apps-winget/main/install.bat" -OutFile "install.bat"; Start-Process -FilePath ".\install.bat" -Verb RunAs
     ```
+2. **Lista de apps a serem instalados**
+    A lista de apps sugeridos é baixada após a primeira execução e atualizada a cada execução do `install.bat`. Esta lista pode ser editada por voce, alterando o arquivo `apps.csv`. Lembre-se que a cada execução do arquivo `install.bat`, este arquivo será atualizado com a lista que está no servidor. Veja abaixo no modo Personalizado, como se deve proceder para editar a lista. 
 
+## ⚙️ Personalização
+
+O script foi projetado para ser executado de duas maneiras:
+
+### Modo Rápido (Padrão)
+Use o comando acima para uma instalação rápida com a lista de aplicativos padrão do repositório. É ideal para setups rápidos sem necessidade de customização.
+
+### Modo Personalizado
+Se você deseja escolher quais aplicativos instalar, siga estes passos:
+
+1.  **Edição da lista de apps**
+    Abra em um editor compatível, o arquivo `apps.csv`. Caso o arquivo nao exista, execute `.\install.bat` para baixá-lo do servidor..
 2.  **Personalize sua Lista de Aplicativos**
-    Abra e edite o arquivo `apps.csv` com os seus aplicativos preferidos. Você pode encontrar o ID de um pacote `winget` usando o comando:
-    ```sh
-    winget search "nome do app"
-    ```
-
+    Abra e edite o arquivo `apps.csv` com seus aplicativos preferidos.
 3.  **Execute o Script como Administrador**
     Clique com o botão direito no arquivo `install.bat` e selecione **"Executar como administrador"**.
-
-    O script cuidará de todo o processo, desde a instalação do WSL até a instalação de cada aplicativo listado no `apps.csv`.
-
-## ⚙️ Personalização (`apps.csv`)
 
 O arquivo `apps.csv` controla quais aplicativos são instalados. O formato é simples: a primeira coluna é um nome amigável (usado para exibição no console) e a segunda é o **ID exato** do pacote `winget`.
 

@@ -19,7 +19,7 @@ echo [1/3] Ativando o Windows Sandbox...
 Dism.exe /online /Enable-Feature /FeatureName:Containers-DisposableClientVM /all /NoRestart
 
 echo.
-echo [2/3] Instalando WSL com Debian...
+echo [2/3] Instalando WSL...
 wsl --install
 
 echo.
@@ -47,7 +47,7 @@ for /f "skip=1 tokens=1,2 delims=," %%A in (apps.csv) do (
 
 echo.
 echo =======================================
-echo  Script concluido!
+echo  Script concluído!
 echo =======================================
 endlocal
 
