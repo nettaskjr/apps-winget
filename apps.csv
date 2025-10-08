@@ -20,7 +20,6 @@ Microsoft 365,Microsoft.Office,Pacote de aplicativos Microsoft 365
 Microsoft AppRuntime 1.3,Microsoft.WindowsAppRuntime.1.3,Runtime para aplicativos UWP
 Microsoft Power Bi,Microsoft.PowerBI,Ferramenta de análise de dados
 MobaXterm,Mobatek.MobaXterm,Terminal e servidor X11
-ModernFlyouts,ModernFlyouts.ModernFlyouts,Gerenciador de flyouts modernos
 Notepad++,Notepad++.Notepad++,Editor de texto avançado
 Notion,Notion.Notion,Aplicativo de produtividade e organização
 OneDrive,Microsoft.OneDrive,Armazenamento em nuvem OneDrive
@@ -38,6 +37,7 @@ XMouseButtonControl,Highresolution.X-MouseButtonControl,Gerenciador de botões d
 Yt-dlp,yt-dlp.yt-dlp,Gerenciador de downloads de vídeos
 Zoom,Zoom.Zoomm,Aplicativo de videoconferência Zoom
 Rainmeter,Rainmeter.Rainmeter,Personalizaçao do Windows
-TranslucentTB,CharlesMilette.TranslucentTB,Deixa a barra de tarefas transparente
-
-
+Windhawk,RamenSoftware.Windhawk,Personalizaçao do Windows
+Cursor,Anysphere.Cursor,IDE para desenvolvimento
+DevToys,DevToys-app.DevToys,Coleção de ferramentas para desenvolvedores
+Everything,voidtools.Everything,Ferramenta de busca rápida de arquivos
