@@ -18,7 +18,6 @@ Insync,Insynchq.Insync,Sincronização de arquivos com Google Drive OneDrive e D
 JDK8,Oracle.JavaRuntimeEnvironment,Java Development Kit 8
 Microsoft 365,Microsoft.Office,Pacote de aplicativos Microsoft 365
 Microsoft AppRuntime 1.3,Microsoft.WindowsAppRuntime.1.3,Runtime para aplicativos UWP
-Microsoft Power Bi,Microsoft.PowerBI,Ferramenta de análise de dados
 MobaXterm,Mobatek.MobaXterm,Terminal e servidor X11
 Notepad++,Notepad++.Notepad++,Editor de texto avançado
 Notion,Notion.Notion,Aplicativo de produtividade e organização
@@ -41,4 +40,5 @@ Cursor,Anysphere.Cursor,IDE para desenvolvimento
 DevToys,DevToys-app.DevToys,Coleção de ferramentas para desenvolvedores
 Everything,voidtools.Everything,Ferramenta de busca rápida de arquivos
 Deezer,Deezer.Deezer,Serviço de Streaming de Música
+
 
