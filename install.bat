@@ -1,5 +1,5 @@
 @echo off
-cls
+cls  
 :: Habilita a expansão de variável atrasada para uso em loops
 setlocal enabledelayedexpansion
 
