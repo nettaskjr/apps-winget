@@ -22,14 +22,13 @@ O objetivo é simplificar e acelerar o processo de setup de uma nova máquina, g
    ```
 2. **Responda as perguntas**
 
-   1. "`Deseja atualizar com a versão mais recente? (S/N):`". Você poderá manter uma versão pessoal do arquivo de aplicativos, neste caso responda N para esta pergunta.
-   2. "`Deseja revisar o arquivo apps.csv antes de instalar? (S/N):`". Neste caso você poderá validar a lista de arquivos antes de instalar, seja uma nova baixada ou aquela que já está local
+   1. `Deseja atualizar com a versão mais recente? (S/N):`. Você poderá manter uma versão pessoal do arquivo de aplicativos, neste caso responda N para esta pergunta.
+   2. `Deseja revisar o arquivo apps.csv antes de instalar? (S/N):`. Neste caso você poderá validar a lista de arquivos antes de instalar, seja uma nova baixada ou aquela que já está local
 3. Veja abaixo como o arquivo é estruturado
 
-    O arquivo`apps.csv` controla quais aplicativos são instalados. O formato é simples: a primeira coluna é um nome amigável (usado para exibição no console) e a segunda é o **ID exato** do pacote `winget`.
+   O arquivo`apps.csv` controla quais aplicativos são instalados. O formato é simples: a primeira coluna é um nome amigável (usado para exibição no console) e a segunda é o **ID exato** do pacote `winget`.
 
-**
-    A primeira linha (cabeçalho) é ignorada pelo script.**
+**A primeira linha (cabeçalho) é ignorada pelo script.**
 
 ### Exemplo de `apps.csv`:
 
