@@ -30,9 +30,24 @@ echo =======================================
 echo  INSTALANDO APLICATIVOS
 echo =======================================
 
-echo Baixando o arquivo de aplicativos...
-:: Usamos -Command para garantir que o comando seja executado pelo PowerShell e não interpretado pelo CMD.
-powershell.exe -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nettaskjr/apps-winget/main/apps.csv' -OutFile 'apps.csv'"
+set "baixar_apps=1"
+if exist "apps.csv" (
+    echo.
+    set /p "resposta=O arquivo apps.csv ja existe. Deseja atualizar com a versao mais recente? (S/N): "
+    if /I "!resposta!"=="S" (
+        set "baixar_apps=1"
+    ) else (
+        set "baixar_apps=0"
+    )
+)
+
+if "!baixar_apps!"=="1" (
+    echo Baixando o arquivo de aplicativos...
+    :: Usamos -Command para garantir que o comando seja executado pelo PowerShell e não interpretado pelo CMD.
+    powershell.exe -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nettaskjr/apps-winget/main/apps.csv' -OutFile 'apps.csv'"
+) else (
+    echo Mantendo o arquivo existente em: %~dp0apps.csv
+)
 
 :: Lendo e executando o arquivo de aplicativos, descartando a primeira linha (cabeçalho)
 :: As configuracoes importantes foram movidas diretamente para este script.
