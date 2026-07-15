@@ -15,12 +15,24 @@ echo  CONFIGURACOES INICIAIS
 echo =======================================
 
 echo.
-echo [1/3] Ativando o Windows Sandbox...
-Dism.exe /online /Enable-Feature /FeatureName:Containers-DisposableClientVM /all /NoRestart
+echo [1/3] Verificando o Windows Sandbox...
+for /f "tokens=*" %%A in ('powershell.exe -NoProfile -Command "(Get-WindowsOptionalFeature -Online -FeatureName 'Containers-DisposableClientVM').State" 2^>nul') do set "sandbox_estado=%%A"
+if /I "!sandbox_estado!"=="Enabled" (
+    echo O Windows Sandbox ja esta habilitado.
+) else (
+    echo Ativando o Windows Sandbox...
+    Dism.exe /online /Enable-Feature /FeatureName:Containers-DisposableClientVM /all /NoRestart
+)
 
 echo.
-echo [2/3] Instalando WSL...
-wsl --install
+echo [2/3] Verificando o WSL...
+for /f "tokens=*" %%A in ('powershell.exe -NoProfile -Command "(Get-WindowsOptionalFeature -Online -FeatureName 'Microsoft-Windows-Subsystem-Linux').State" 2^>nul') do set "wsl_estado=%%A"
+if /I "!wsl_estado!"=="Enabled" (
+    echo O WSL ja esta instalado e habilitado.
+) else (
+    echo Instalando WSL...
+    wsl --install
+)
 
 echo.
 echo [3/3] Atualizando todos os pacotes Winget...

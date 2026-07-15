@@ -18,7 +18,7 @@ O objetivo é simplificar e acelerar o processo de setup de uma nova máquina, g
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nettaskjr/apps-winget/main/install.bat" -OutFile "install.bat"; Start-Process -FilePath ".\install.bat" -Verb RunAs
     ```
 2. **Lista de apps a serem instalados**
-    A lista de apps sugeridos é baixada após a primeira execução e atualizada a cada execução do `install.bat`. Esta lista pode ser editada por voce, alterando o arquivo `apps.csv`. Lembre-se que a cada execução do arquivo `install.bat`, este arquivo será atualizado com a lista que está no servidor. Veja abaixo no modo Personalizado, como se deve proceder para editar a lista. 
+    A lista de apps sugeridos é baixada automaticamente quando o arquivo `apps.csv` não existe. Se o arquivo já estiver presente na máquina, o script perguntará se você deseja atualizar com a versão mais recente. Se responder "N", o arquivo local será mantido e não será substituído. Esta lista pode ser editada por você, alterando o arquivo `apps.csv`. Veja abaixo no modo Personalizado, como se deve proceder para editar a lista.
 
 ## ⚙️ Personalização
 
