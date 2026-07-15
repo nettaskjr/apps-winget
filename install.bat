@@ -11,7 +11,7 @@ chcp 65001
 
 echo ""
 echo =======================================
-echo  CONFIGURACOES INICIAIS
+echo  CONFIGURAÇÕES INICIAIS
 echo =======================================
 
 echo.
@@ -26,9 +26,15 @@ if /I "!sandbox_estado!"=="Enabled" (
 
 echo.
 echo [2/3] Verificando o WSL...
-for /f "tokens=*" %%A in ('powershell.exe -NoProfile -Command "(Get-WindowsOptionalFeature -Online -FeatureName 'Microsoft-Windows-Subsystem-Linux').State" 2^>nul') do set "wsl_estado=%%A"
-if /I "!wsl_estado!"=="Enabled" (
-    echo O WSL ja esta instalado e habilitado.
+where wsl.exe >nul 2>&1
+if not errorlevel 1 (
+    wsl.exe --status >nul 2>&1
+    if not errorlevel 1 (
+        echo O WSL ja esta instalado e habilitado.
+    ) else (
+        echo Instalando WSL...
+        wsl --install
+    )
 ) else (
     echo Instalando WSL...
     wsl --install
@@ -38,10 +44,12 @@ echo.
 echo [3/3] Atualizando todos os pacotes Winget...
 winget upgrade --all --silent --accept-source-agreements --accept-package-agreements
 
+echo.
 echo =======================================
 echo  INSTALANDO APLICATIVOS
 echo =======================================
 
+:: Testa se o arquivo apps.csv existe e pergunta ao usuário se deseja atualizar
 set "baixar_apps=1"
 if exist "apps.csv" (
     echo.
@@ -59,6 +67,16 @@ if "!baixar_apps!"=="1" (
     powershell.exe -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nettaskjr/apps-winget/main/apps.csv' -OutFile 'apps.csv'"
 ) else (
     echo Mantendo o arquivo existente em: %~dp0apps.csv
+)
+
+echo.
+set /p "revisar_lista=Deseja revisar o arquivo apps.csv antes de instalar? (S/N): "
+if /I "!revisar_lista!"=="S" (
+    echo Abrindo o arquivo para revisão...
+    start "" /wait notepad.exe "%~dp0apps.csv"
+    echo Continuando apos a revisão do arquivo.
+) else (
+    echo Prosseguindo com a instalacao.
 )
 
 :: Lendo e executando o arquivo de aplicativos, descartando a primeira linha (cabeçalho)
