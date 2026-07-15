@@ -6,9 +6,11 @@ O objetivo é simplificar e acelerar o processo de setup de uma nova máquina, g
 
 ## ✨ Funcionalidades
 
-- ✅ **Configuração Inicial:** Instala o Sandbox e wsl, atualiza todos os pacotes existentes.
-- 🐧 **WSL:** Instala automaticamente o WSL distribui;áo padrão do Linux.
+- ✅ **Configuração Inicial:** Verifica se o Windows Sandbox e o WSL já estão habilitados antes de tentar instalá-los, evitando passos desnecessários.
+- 🐧 **WSL:** Garante que o WSL esteja disponível e, se necessário, executa a instalação automaticamente.
 - 📦 **Instalação em Lote:** Lê uma lista de aplicativos de um arquivo `apps.csv` e faz a instalação.
+- 🔄 **Atualização Inteligente do CSV:** Se o arquivo `apps.csv` já existir, o script pergunta se deseja atualizar com a versão mais recente; se a resposta for negativa, mantém o arquivo local.
+- 👀 **Revisão Antes da Instalação:** Antes de instalar os aplicativos, o script pode abrir o arquivo `apps.csv` no Bloco de Notas e aguardar até que ele seja fechado, permitindo ajustes antes de prosseguir.
 - 🔧 **Fácil de Personalizar:** Basta editar o arquivo `apps.csv` para adicionar ou remover os aplicativos que você deseja instalar.
 
 ## 🚀 Como Usar
@@ -18,7 +20,7 @@ O objetivo é simplificar e acelerar o processo de setup de uma nova máquina, g
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nettaskjr/apps-winget/main/install.bat" -OutFile "install.bat"; Start-Process -FilePath ".\install.bat" -Verb RunAs
     ```
 2. **Lista de apps a serem instalados**
-    A lista de apps sugeridos é baixada automaticamente quando o arquivo `apps.csv` não existe. Se o arquivo já estiver presente na máquina, o script perguntará se você deseja atualizar com a versão mais recente. Se responder "N", o arquivo local será mantido e não será substituído. Esta lista pode ser editada por você, alterando o arquivo `apps.csv`. Veja abaixo no modo Personalizado, como se deve proceder para editar a lista.
+    A lista de apps sugeridos é baixada automaticamente quando o arquivo `apps.csv` não existe. Se o arquivo já estiver presente na máquina, o script perguntará se você deseja atualizar com a versão mais recente. Se responder "N", o arquivo local será mantido e não será substituído. Antes da instalação, o script também pergunta se você deseja revisar o arquivo `apps.csv` antes de prosseguir. Se responder "S", ele abre o arquivo no Bloco de Notas e só continua após o fechamento, permitindo ajustes manuais. Veja abaixo no modo Personalizado, como se deve proceder para editar a lista.
 
 ## ⚙️ Personalização
 

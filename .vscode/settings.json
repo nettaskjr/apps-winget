@@ -2,8 +2,12 @@
   "python-envs.defaultEnvManager": "ms-python.python:system",
   "python-envs.pythonProjects": [],
   "cSpell.words": [
+    "chcp",
     "Deezer",
-    "evernote",
+    "Dism",
+    "enabledelayedexpansion",
+    "endlocal",
+    "errorlevel",
     "Evernote",
     "Insync",
     "Insynchq",
@@ -12,7 +16,9 @@
     "Mobatek",
     "Piriform",
     "Playnite",
+    "setlocal",
     "voidtools",
-    "Windhawk"
+    "Windhawk",
+    "winget"
   ]
 }

@@ -53,7 +53,7 @@ echo =======================================
 set "baixar_apps=1"
 if exist "apps.csv" (
     echo.
-    set /p "resposta=O arquivo apps.csv ja existe. Deseja atualizar com a versao mais recente? (S/N): "
+    set /p "resposta=O arquivo apps.csv ja existe. Deseja atualizar com a versão mais recente? (S/N): "
     if /I "!resposta!"=="S" (
         set "baixar_apps=1"
     ) else (
@@ -76,11 +76,11 @@ if /I "!revisar_lista!"=="S" (
     start "" /wait notepad.exe "%~dp0apps.csv"
     echo Continuando apos a revisão do arquivo.
 ) else (
-    echo Prosseguindo com a instalacao.
+    echo Prosseguindo com a instalação.
 )
 
 :: Lendo e executando o arquivo de aplicativos, descartando a primeira linha (cabeçalho)
-:: As configuracoes importantes foram movidas diretamente para este script.
+:: As configurações importantes foram movidas diretamente para este script.
 for /f "skip=1 tokens=1,2 delims=," %%A in (apps.csv) do (
     set "coluna1=%%A"
     set "coluna2=%%B"
